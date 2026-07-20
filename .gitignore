@@ -1,0 +1,40 @@
+# ── Environment / Secrets ─────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.pem
+*-service-account*.json
+gcp-*.json
+
+# ── Dependencies ──────────────────────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.*
+
+# ── Next.js ───────────────────────────────────────────────────────────────────
+frontend/.next/
+frontend/out/
+frontend/build/
+
+# ── Backend build ─────────────────────────────────────────────────────────────
+backend/dist/
+
+# ── Prisma ────────────────────────────────────────────────────────────────────
+backend/prisma/migrations/*.sql
+
+# ── Logs / Build artifacts ────────────────────────────────────────────────────
+*.log
+build.log
+npm-debug.log*
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Editor ────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+
+# ── Media (served from CDN / Cloudinary in production) ────────────────────────
+frontend/public/video/
+frontend/public/audio/

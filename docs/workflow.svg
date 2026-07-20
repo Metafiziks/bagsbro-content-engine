@@ -1,0 +1,142 @@
+<svg viewBox="0 0 760 600" xmlns="http://www.w3.org/2000/svg" role="img" font-family="system-ui, -apple-system, sans-serif">
+  <title>Bags Bro! — Autonomous Content Engine Pipeline</title>
+  <desc>End-to-end pipeline: scheduler triggers trend detection, Claude generates a scene, WaveSpeed Flux Dev produces pixel art (Replicate LoRA as fallback), WaveSpeed Seedance animates it, Claude Haiku writes the tweet, and Twitter API v2 publishes it.</desc>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/></marker>
+    <marker id="arr-g" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#4ade80"/></marker>
+    <marker id="arr-o" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#fb923c"/></marker>
+    <marker id="arr-p" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#c084fc"/></marker>
+    <marker id="arr-c" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#38bdf8"/></marker>
+    <marker id="arr-r" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#f87171"/></marker>
+  </defs>
+
+  <!-- ══ LANE 1 — TRIGGER ══ -->
+  <rect x="10" y="10" width="740" height="80" rx="8" fill="#14532d" opacity="0.22"/>
+  <text x="24" y="28" font-size="10" fill="#4ade80" font-weight="700" letter-spacing="1">TRIGGER — Human-mimicking Scheduler</text>
+
+  <rect x="24" y="34" width="175" height="46" rx="7" fill="#166534"/>
+  <text x="111" y="54" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">⏰ Scheduler</text>
+  <text x="111" y="70" text-anchor="middle" font-size="9" fill="#86efac">Gaussian jitter · sleep 12am–8am ET · ~12% skip day</text>
+
+  <line x1="199" y1="57" x2="238" y2="57" stroke="#4ade80" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+  <rect x="240" y="34" width="210" height="46" rx="7" fill="#166534"/>
+  <text x="345" y="54" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">📈 pickTrendForPost()</text>
+  <text x="345" y="70" text-anchor="middle" font-size="9" fill="#86efac">News API · category scoring · dedup</text>
+
+  <line x1="450" y1="57" x2="490" y2="57" stroke="#4ade80" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+  <rect x="492" y="34" width="244" height="46" rx="7" fill="#166534"/>
+  <text x="614" y="54" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">🤖 Claude Haiku — Scene Extraction</text>
+  <text x="614" y="70" text-anchor="middle" font-size="9" fill="#86efac">extractTrendingScene() · 15-word visual description</text>
+
+  <!-- ══ LANE 2 — PIXEL ART ══ -->
+  <rect x="10" y="100" width="740" height="168" rx="8" fill="#431407" opacity="0.22"/>
+  <text x="24" y="118" font-size="10" fill="#fb923c" font-weight="700" letter-spacing="1">PIXEL ART GENERATION — generatePixelArt(scene)</text>
+
+  <!-- Prompt build box -->
+  <rect x="24" y="122" width="200" height="46" rx="7" fill="#7c2d12"/>
+  <text x="124" y="142" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">🎨 Build BALBAGS Prompt</text>
+  <text x="124" y="157" text-anchor="middle" font-size="9" fill="#fdba74">Scene + palette variant · PIXEL_ART_PROMPT()</text>
+
+  <line x1="224" y1="145" x2="258" y2="145" stroke="#fb923c" stroke-width="1.5" marker-end="url(#arr-o)"/>
+
+  <!-- Diamond -->
+  <polygon points="286,122 346,145 286,168 226,145" fill="#1c0a04" stroke="#fb923c" stroke-width="1.5" transform="translate(8,0)"/>
+  <text x="295" y="142" text-anchor="middle" font-size="10" fill="#fed7aa">WaveSpeed</text>
+  <text x="295" y="156" text-anchor="middle" font-size="10" fill="#fed7aa">available?</text>
+
+  <!-- YES path -->
+  <line x1="362" y1="145" x2="395" y2="145" stroke="#4ade80" stroke-width="1.5" marker-end="url(#arr-g)"/>
+  <text x="378" y="138" text-anchor="middle" font-size="9" fill="#4ade80">Yes</text>
+  <rect x="397" y="122" width="338" height="46" rx="7" fill="#14532d"/>
+  <text x="566" y="142" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">⚡ WaveSpeed Flux Dev</text>
+  <text x="566" y="157" text-anchor="middle" font-size="9" fill="#86efac">1024×1024 PNG · 35 steps · guidance 4.5 · async poll</text>
+
+  <!-- NO path → fallback -->
+  <line x1="295" y1="168" x2="295" y2="196" stroke="#f87171" stroke-width="1.5" stroke-dasharray="4 2" marker-end="url(#arr-r)"/>
+  <text x="306" y="188" font-size="9" fill="#f87171">No</text>
+
+  <rect x="100" y="198" width="560" height="58" rx="7" fill="#3b0764"/>
+  <text x="380" y="220" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">🔁 Replicate LoRA Fallback — metafiziks/bags-bro-ballers-style</text>
+  <text x="380" y="237" text-anchor="middle" font-size="9" fill="#d8b4fe">Custom Flux model fine-tuned on 500 Ballers NFTs · trigger word: BALBAGS · LoRA scale 1.0</text>
+
+  <!-- ══ LANE 3 — ANIMATION ══ -->
+  <rect x="10" y="278" width="740" height="96" rx="8" fill="#1a1244" opacity="0.25"/>
+  <text x="24" y="294" font-size="10" fill="#c084fc" font-weight="700" letter-spacing="1">ANIMATION — WaveSpeed Seedance (image-to-video)</text>
+
+  <!-- merge lines into animation box -->
+  <line x1="566" y1="168" x2="566" y2="272" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="380" y1="256" x2="380" y2="272" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="380" y1="272" x2="566" y2="272" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="473" y1="272" x2="473" y2="302" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="200" y="304" width="350" height="58" rx="7" fill="#312e81"/>
+  <text x="375" y="325" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">🎬 generateAndAnimate()</text>
+  <text x="375" y="341" text-anchor="middle" font-size="9" fill="#c4b5fd">Category motion prompt · buildMotionPrompt()</text>
+  <text x="375" y="354" text-anchor="middle" font-size="9" fill="#c4b5fd">5 min poll · loopable MP4</text>
+
+  <!-- ══ LANE 4 — CONTENT + PUBLISH ══ -->
+  <rect x="10" y="384" width="740" height="100" rx="8" fill="#0c2340" opacity="0.25"/>
+  <text x="24" y="402" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="1">CONTENT GENERATION &amp; PUBLISH</text>
+
+  <line x1="375" y1="362" x2="375" y2="406" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="24" y="392" width="215" height="46" rx="7" fill="#0c3a6e"/>
+  <text x="131" y="412" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">✍️ Claude Haiku — Tweet Copy</text>
+  <text x="131" y="427" text-anchor="middle" font-size="9" fill="#7dd3fc">Bags Bro voice · hot take / shitpost / caption</text>
+
+  <line x1="239" y1="415" x2="278" y2="415" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arr-c)"/>
+
+  <rect x="280" y="392" width="215" height="46" rx="7" fill="#0c3a6e"/>
+  <text x="387" y="412" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">🐦 Twitter API v2</text>
+  <text x="387" y="427" text-anchor="middle" font-size="9" fill="#7dd3fc">Upload media → post tweet · BullMQ job</text>
+
+  <line x1="495" y1="415" x2="534" y2="415" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arr-c)"/>
+
+  <rect x="536" y="392" width="210" height="46" rx="7" fill="#0c3a6e"/>
+  <text x="641" y="412" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">💬 Reply Engine</text>
+  <text x="641" y="427" text-anchor="middle" font-size="9" fill="#7dd3fc">Polls mentions · auto-engages · every 45 min</text>
+
+  <!-- ══ LANE 5 — INFRA ══ -->
+  <rect x="10" y="478" width="740" height="50" rx="8" fill="#1f2937" opacity="0.55"/>
+  <text x="380" y="495" text-anchor="middle" font-size="10" fill="#9ca3af" font-weight="700" letter-spacing="1">INFRASTRUCTURE</text>
+
+  <rect x="24" y="502" width="118" height="18" rx="4" fill="#374151"/>
+  <text x="83" y="514" text-anchor="middle" font-size="9" fill="#d1d5db">🔴 Redis + BullMQ</text>
+
+  <rect x="152" y="502" width="118" height="18" rx="4" fill="#374151"/>
+  <text x="211" y="514" text-anchor="middle" font-size="9" fill="#d1d5db">🗃️ MongoDB</text>
+
+  <rect x="280" y="502" width="118" height="18" rx="4" fill="#374151"/>
+  <text x="339" y="514" text-anchor="middle" font-size="9" fill="#d1d5db">☁️ Cloudinary CDN</text>
+
+  <rect x="408" y="502" width="148" height="18" rx="4" fill="#374151"/>
+  <text x="482" y="514" text-anchor="middle" font-size="9" fill="#d1d5db">🖥️ Admin Dashboard</text>
+
+  <rect x="566" y="502" width="180" height="18" rx="4" fill="#374151"/>
+  <text x="656" y="514" text-anchor="middle" font-size="9" fill="#d1d5db">🚀 Google Cloud Run</text>
+
+  <!-- ══ LEGEND ══ -->
+  <rect x="10" y="538" width="740" height="52" rx="8" fill="#111827" opacity="0.65"/>
+  <text x="24" y="554" font-size="9" fill="#6b7280" font-weight="600">LEGEND</text>
+
+  <rect x="80" y="543" width="10" height="10" rx="2" fill="#166534"/>
+  <text x="95" y="553" font-size="9" fill="#9ca3af">Scheduler / trends</text>
+
+  <rect x="210" y="543" width="10" height="10" rx="2" fill="#7c2d12"/>
+  <text x="225" y="553" font-size="9" fill="#9ca3af">Pixel art (primary)</text>
+
+  <rect x="340" y="543" width="10" height="10" rx="2" fill="#3b0764"/>
+  <text x="355" y="553" font-size="9" fill="#9ca3af">Replicate LoRA fallback</text>
+
+  <rect x="490" y="543" width="10" height="10" rx="2" fill="#312e81"/>
+  <text x="505" y="553" font-size="9" fill="#9ca3af">Animation</text>
+
+  <rect x="570" y="543" width="10" height="10" rx="2" fill="#0c3a6e"/>
+  <text x="585" y="553" font-size="9" fill="#9ca3af">Publish / engage</text>
+
+  <rect x="80" y="566" width="640" height="18" rx="4" fill="#1e3a5f" opacity="0.6"/>
+  <text x="400" y="578" text-anchor="middle" font-size="9" fill="#93c5fd">Pixel art prompt uses BALBAGS trigger word + deterministic palette variant (hashed from scene text) across both providers</text>
+</svg>
